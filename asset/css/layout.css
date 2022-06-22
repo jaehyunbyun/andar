@@ -1,0 +1,930 @@
+@import url(./reset.css);
+@import url(./font.css);
+@import url(./common.css);
+
+.header{position: relative;}
+
+.dimmed{
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    z-index: 20;
+    visibility: hidden;
+    opacity: 0;
+    transition: opcity 0.3s;
+    background: rgba(0, 0, 0, 0.3);
+}
+.dimmed.active{
+    opacity: 1;
+    visibility: visible;
+}
+body.hidden{overflow: hidden;}
+
+.header .side-area{
+    /* visibility: visible; */
+    
+    
+    width: 82%;
+    height: 100%;
+
+    position: fixed;
+    top: 0;left: 0;
+    transform: translateX(-100%);
+    transition: 0.3s;
+    /* z-index: 9999; */
+    
+    overflow: auto;
+    overflow-x: hidden;
+    z-index: 30;
+    background: #fff;
+    /* -webkit-overflow-scrolling: touch; */
+
+
+    /* -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    -webkit-overflow-scrolling: touch; */
+}
+.header .side-area.active{
+    transform: translateX(0);
+}
+
+.header .inner{
+    padding: 0 16px; 
+}
+
+.header .login-area{
+    border-bottom: 1px solid #ddd
+}
+.header .login-wrap{
+    padding: 32px 16px 30px 16px;
+}
+
+.header .login-wrap a{
+    display: inline-block;
+    padding: 10px 26px;
+    line-height: 15px;
+    border-radius: 2px;
+}
+
+.header .link-login{
+    color: #fff;
+    font-weight: 700;
+    background: #0e0e0e;
+}
+.header .link-join{
+    font-weight: 500;
+    border: 1px solid #ccc;
+    margin-left: 6px;
+}
+.header .login-wrap .desc{
+    padding-top: 15px;
+    color: #777;
+}
+.header .login-wrap .desc span{
+    font-weight: 700;
+}
+
+
+.header .sidemn-list{
+    padding: 18px 0 11px;
+}
+.header .sidemn-item{
+    position: relative;
+}
+.header .link-sidemn{
+    /* position: relative; */
+    display: block;
+    padding: 15px 0;
+    font-size: 16px;
+    line-height: 16px;
+    font-weight: 500;
+}
+
+.header .link-sidemn.event span{
+    position: relative;
+    display: inline-block;
+}
+.header .link-sidemn.event span::after{
+    content: "";
+    position: absolute;
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    background: #EE5728;
+    border-radius: 50%;
+    top: 0px;
+    right: -10px;
+}
+/* 
+.header .link-sidemn.two::after{
+    position: absolute;
+    top: 15px; left: 34px;
+} */
+
+
+.header .sub-item a{
+    position: relative;
+    display: block;
+    padding: 11px 0;
+    color: #848484;
+    font-size: 15px;
+    letter-spacing: -0.5px;
+}
+
+/* 제이쿼리 */
+.header .sidemn-item .btn-sidemn{
+    position: absolute;
+    top: 0; right: 0;
+    content: '';
+    display: block;
+    width: 30px; height: 28px;
+    transition-duration: .3s;
+    background: url(../images/icon/side-undarrow.png) no-repeat center/28px auto;
+}
+.header .btn-sidemn.show{
+    transition-duration: .3s;
+    transform: rotate(180deg);
+}
+
+
+
+.header .sub-list{
+    display: none;
+}
+
+
+
+.header .board-list{
+    padding: 18px 0 11px;
+    border-top: 1px solid #ddd;
+}
+.header .board-list{
+    color: #2d2d2d;
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 500;
+}
+
+.header .board-list a{
+    display: block;
+    padding: 13px 0;
+}
+
+.header .event-wrap{
+    padding-bottom: 30px;
+}
+.header .event-title{
+    font-size: 17px;
+    line-height: 21px;
+    letter-spacing: -0.02em;
+    color: #333;
+    font-weight: 500;
+    padding: 20px 0 16px;
+    border-top: 1px solid #ddd;
+}
+.header .link-event{
+    width: 100%;
+    display: block;
+    margin-bottom: 30px;
+}
+.header .link-event img{
+    width: 100%;
+}
+.header .link-event .txt-box{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 12px 0 6px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: -0.02em;
+    color: #222;
+}
+.header .link-event .txt-box .title{
+    display: block;
+}
+.header .link-event .txt-box .all{
+    display: block;
+    font-size: 12px;
+    line-height: 16px;
+    color: #777;
+}
+.header .link-event .desc{
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: -0.02em;
+    font-weight: 400;
+    color: #777;
+
+}
+
+.header .sidebnr-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 2px;
+}
+.header .sidebnr-box a{
+    position: relative;
+    text-align: center;
+    display: block;
+    width: 50%;
+    background: #F2F2F2;
+    padding: 14px 0;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: -0.02em;
+    font-weight: 400;
+    color: #777;
+}
+.header .sidebnr-box a:nth-child(1)::after{
+    content: '';
+    display: block;
+    position: absolute;
+    top: 50%; right: 0;
+    transform: translateY(-50%);
+    width: 1px; height: 16px;
+    background: #CCC;
+    z-index: 1;
+}
+
+
+
+.header .recent-wrap{
+    padding-bottom: 70px;
+}
+.header .recent-title{
+    padding: 0;
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 500;
+}
+
+
+.header .recent-list{
+    padding: 20px 0;
+    display: flex;
+}
+.header .recent-item{
+    width: 25%;
+    max-width: 70px;
+    float: none;
+    display: inline-block;
+    margin: 0 7px;
+    padding: 0;
+}
+.header .recent-item+.recent-item{
+    margin-left: 14px;
+}
+
+.header .link-recent{
+    display: block;
+}
+.header .link-recent img{
+    width: 100%;
+}
+.header .btn-all{
+    position: relative;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    padding: 10px 48px 10px 18px;
+    box-sizing: border-box;
+    color: #777;
+    font-size: 13px;
+    line-height: 18px;
+    font-weight: 400;
+    letter-spacing: -0.03em;
+}
+
+
+.header .btn-all::after{
+    content: '';
+    display: block;
+    position: absolute;
+    top: 10px; right: 20px;
+    width: 25px;
+    height: 15px;
+    background: url(../images/icon/right-arrow02.png) no-repeat;
+    background-size: 15px auto;
+    background-position: right center
+}
+
+
+.header .btn-close{
+    position: absolute;
+    display: block;
+    top: 32px; right: 16px;
+    width: 24px;
+    height: 24px;
+    background: url(../images/icon/side-close.png) no-repeat;
+    background-size: 100% auto;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.header .top-area{
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    color: #fff;
+    background: #000;
+}
+.header .banner{height: 100%;}
+.header .link-top{
+    display: block;
+}
+.header .link-top em{font-weight: 700;}
+.header .link-top::after{
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    width: 24px; height: 16px;
+    margin-bottom: 4px;
+    background: url(../images/icon/header-arrow.png) no-repeat center;
+    /* background-image: url(../images/icon/header-arrow.png); */
+    /* background-repeat: no-repeat; */
+    /* background-position: center; */
+}
+.header .festival em{color: #ee5728;}
+
+.header .ic-kakaoch{
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    width: 17px; height: 18px;
+    line-height: 20px;
+    margin: 0 0 2px 7px;
+    background: url(../images/icon/kakao-ic.png) no-repeat;
+    background-size: cover;
+}
+
+
+
+
+.header .menu-area{
+    position: fixed;
+    top: 40px;left: 0;
+    z-index: 10;
+    width: 100%;
+}
+
+.header .logo-area{
+    position: relative;
+    height: 56px;
+}
+.header .link-logo{
+    position: absolute;
+    top: 50%;left: 50%;
+    transform: translate(-50%, -50%);
+    width: 87px;height: 23px;
+    background: url(../images/logo/logo01.svg) no-repeat;
+    background-size: cover;
+}
+
+
+.header .link-menu{
+    width: 22px; height: 17px;
+    position: absolute;
+    top: 50%; left: 15px;
+    transform: translateY(-50%);
+    background: url(../images/icon/menu01.svg) no-repeat;
+    background-size: cover;
+
+    /* padding: 0 10px; 기존 사이트에서 이렇게 줌 이따 간격 참고*/
+}
+.header .link-search{
+    width: 17px; height: 18px;
+    position: absolute;
+    top: 50%; left: 54px;
+    transform: translateY(-50%);
+    background: url(../images/icon/search01.svg) no-repeat;
+    background-size: cover;
+}
+
+.header .link-cart{
+    width: 19px; height: 19px;
+    position: absolute;
+    top: 50%; right: 53px;
+    transform: translateY(-50%);
+    background: url(../images/icon/cart01.svg) no-repeat;
+    background-size: cover;
+}
+.header .link-cart::after{
+    content: '0';
+
+    position: absolute;
+    top: -5px; left: 13px;
+    width: 16px;
+    display: inline-block;
+    width: 16px; height: 16px;
+
+    font-size: 11px;
+    line-height: 16px;
+    font-weight: 700;
+    text-align: center;
+    
+    border-radius: 50%;
+    background: #000;
+    color: #fff;
+}
+
+.header .link-myinfo{
+    width: 19px; height: 19px;
+    position: absolute;
+    top: 50%; right: 15px;
+    transform: translateY(-50%);
+    background: url(../images/icon/myinfo01.svg) no-repeat;
+    background-size: cover;
+}
+
+
+
+
+/* 스크롤 내리면 메뉴 고정되는부분 */
+.header.active{}
+.header.active .gnb-area{
+    display: block;
+    /* position: fixed;
+    top: 0;left: 0;
+    background: #fff;
+    transition: 0.3s; */
+}
+.header.active .menu-area{
+    top: 0;
+    background: #fff;
+}
+
+.header.active .link-logo{
+    background: url(../images/logo/logo02.svg) no-repeat;
+    background-size: cover;
+}
+
+
+.header.active .link-menu{
+    background: url(../images/icon/menu02.svg) no-repeat;
+    background-size: cover;
+}
+.header.active .link-search{
+    background: url(../images/icon/search02.svg) no-repeat;
+    background-size: cover;
+}
+
+.header.active .link-cart{
+    background: url(../images/icon/cart02.svg) no-repeat;
+    background-size: cover;
+}
+
+
+.header.active .link-myinfo{
+    background: url(../images/icon/myinfo02.svg) no-repeat;
+    background-size: cover;
+}
+
+/* 검색 누르면 나오는 부분 */
+.search-area{
+    display: none;
+    position: fixed;
+    top: 0;left: 0;
+    width: 100%;height: 100%;
+    background: url(../images/bg/search-bg.jpg)no-repeat center;
+    background-size: cover;
+}
+
+
+.search-area .search-box{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: inherit;
+    height: 45px;
+    padding: 0 9.72%;
+    box-sizing: border-box;
+}
+.search-area fieldset{
+    position: relative;
+    height: 45px;
+    padding: 0 6.55% 0 0;
+    border-bottom: 2px solid #fff;
+    box-sizing: border-box;
+}
+
+
+.search-area input{
+    color: #fff;
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 43px;
+    letter-spacing: -0.5px;
+    background:transparent;
+    border: 0;
+    
+}
+.search-area input::placeholder{
+    color: #fff;
+} 
+.search-area input:focus {outline:none;}
+
+.search-area button{
+    position: absolute;
+    right: 0;
+    top: 50%;
+    width: 19px;
+    height: 19px;
+    margin-top: -9px;
+    background: url(../images/icon/search-bg-icon1.png) no-repeat center/19px auto;
+    border: 0;
+    cursor: pointer;
+}
+.search-area .btn-back{
+    position: absolute;
+    left: 0; top: 0;
+    width: 10px; height: 18px;
+    padding: 18px 4.17%;
+    background: url(../images/icon/left-arrow.png)no-repeat center/10px auto;
+}
+
+
+
+/*  active gnb영역 */
+/* 
+헤더에 스크롤이 내려가면 menu-area에 액티브 클래스가 추가되고
+gnb-area은 display block으로 바뀐다 
+*/
+.header .gnb-area{
+    display: none;
+    position: relative;
+    width: 100%;
+    height: 45px;
+    transition: 0.3s;
+    /* padding-right: 45px; */
+}
+
+
+
+/*  overflow-x: auto; x축 넓이에 맞게 영역을 잘라줌 */
+.header .gnb-wrap{
+    padding: 11px 0 11px 15px;
+    font-size: 16px;
+    line-height: 23px;
+    letter-spacing: -0.05em;
+    color: #000;
+    
+    width: calc(100% - 45px);
+    box-sizing: border-box;
+    overflow-x: auto;
+
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+
+
+.header .gnb-wrap::-webkit-scrollbar{display: none; /* Chrome, Safari, Opera*/}
+
+
+
+
+
+.header .gnb-list{
+    display: flex;
+    position: relative;
+    /* z-index: 1; */
+}
+
+
+
+
+/* 
+수정된 부분 이유살피기 0613 
+.header .gnb-item{white-space: nowrap;}
+줄바꿈이 일어나지 않게 해줘서 글씨가 밑으로 떨어지지않게 한다
+*/
+.header .gnb-item{
+    white-space: nowrap;
+}
+
+
+
+
+.header .gnb-item+.gnb-item{
+    margin-left: 15px;
+}
+
+.header .link-gnb{
+    /* position: relative; */
+}
+
+
+/* .header .link-gnb.event span{
+    display: inline-block;
+} */
+
+.header .link-gnb.event::after{
+    content: "";
+    display: inline-block;
+    position: relative;
+    top: -8px;
+    right: -2px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #ee5728;
+}
+
+
+
+
+/* 
+수업에서 수정한 코드 이유살펴보기 0613
+.header .gnb-area .hide{}
+.header .gnb-area .hide .title{display: block;}
+.header .gnb-area .hide .title .gnb-wrap{visibility: hidden;} 
+*/
+
+.header .gnb-list.hide{display: none;}
+
+
+
+
+
+/*0613 */
+.header .title{
+    display: none;
+    
+}
+.header .title.show{
+    display: block;
+}
+
+
+.header .btn-gnb{
+    position: absolute;
+    top: auto; right: 10px; bottom: 11px;
+    width: 28px; height: 28px;
+    transition: 0.3s;
+    background: url(../images/icon/under-arrow.png) no-repeat center
+} 
+
+
+
+/* gnb 아코디언 펼쳤을때 */
+/* 제이쿼리로 'show' 클래스 추가했을때 */
+/* 여기 까지 동일함 0613 */
+.header .btn-gnb.show{
+    transition: 0.3s;
+    transform: rotate(180deg);
+}
+
+.header .acco-wrap{
+    display: none;
+    position: relative;
+    padding: 6px 12px;
+    max-height: 145px;
+    box-sizing: border-box;
+    border-top: 1px solid #dcdcdc;
+    background: #F6F6F6;
+}
+
+.header .acco-list{
+    /* display: inline-block;
+    padding: 8px 17px;
+    margin: 3px  3px;
+    border: 1px solid #ebebeb;
+    border-radius: 100px;
+    box-sizing: border-box;
+    background: #fff; */
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 14px;
+    line-height: 20px;
+    color: #000;
+    letter-spacing: -0.05em;
+}
+.header .acco-item{
+
+    display: block;
+    padding: 8px 17px;
+    margin: 3px  3px;
+    border: 1px solid #ebebeb;
+    border-radius: 100px;
+    box-sizing: border-box;
+    background: #fff;
+
+}
+
+
+
+/* 일단 지금 신경안써도됨 이따 클래스네임 변경 0613 */
+
+.header .link-acco{display: block;}
+
+.header .link-acco.event::after{
+    content: "";
+    display: inline-block;
+    position: relative;
+    top: -8px; right: -2px;
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: #ee5728;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.footer{
+    background: #fafafa;
+    padding: 40px 16px 40px;
+}
+
+.footer .service-center{
+    padding-bottom: 30px;
+    line-height: 16px;
+}
+.footer .title{
+    display: block;
+    font-weight: 500;
+    padding-bottom: 15px;
+}
+.footer .tel{
+    display: block;
+    font-size: 18px;
+    line-height: 21px;
+    font-weight: 700;
+    padding-bottom: 10px;
+}
+
+.footer .time.weekday{
+    padding-bottom: 5px;
+}
+
+.footer .sns-list{
+    display: flex;
+}
+.footer .sns-item+.sns-item{
+    margin-left: 25px;
+}
+.footer .sns-item a{display: block;}
+
+.footer .link-facebook{
+    width: 12px; height: 22px;
+    background: url(../images/icon/facebook.png) no-repeat;
+    background-size: cover;
+}
+.footer .link-youtube{
+    width: 22px; height: 22px;
+    background: url(../images/icon/youtube.png) no-repeat;
+    background-size: cover;
+}
+.footer .link-insta{
+    width: 22px; height: 22px;
+    background: url(../images/icon/insta.png) no-repeat;
+    background-size: cover;
+}
+
+
+.footer .fnb-list{
+    display: flex;
+    padding: 30px 0 30px;
+
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1.7;
+    color: #777;
+}
+.footer .fnb-item{
+    position: relative;
+
+    position: relative;
+}
+.footer .fnb-item+.fnb-item{
+    padding-left: 7px;
+    margin-left: 7px;
+}
+
+.footer .fnb-item+.fnb-item::before{
+    content: "";
+    position: absolute;
+    top: 50%; left: 0;
+    transform: translateY(-50%);
+    width: 1px;
+    height: 10px;
+    background: #ccc;
+}
+
+
+.footer .bar{
+    display: inline-block;
+    width: 1px;
+    height: 10px;
+    background: #ccc;
+    margin: 0 10px;
+}
+.footer .add-area{
+    font-size: 11px;
+    line-height: 21px;
+    color: #777;
+}
+.footer .add-area a{
+    color: #555;
+}
+
+
+
+
+
+.footer .copy{
+    font-size: 11px;
+    font-weight: 700;
+    line-height: 13px;
+    letter-spacing: -0.02em;
+    color: #777;
+    padding: 30px 0 0;
+}
+.footer .copy span{
+    font-weight: 300;
+}
+
+
+.footer .mark-list{
+    display: flex;
+    align-items: flex-start;
+    padding-top: 24px;
+}
+
+.footer .mark-item+.mark-item{
+    margin-left: 22px;
+}
+.footer .link-mark{
+    display: block;
+    /* width: 45px;height: 38px; */
+}
+
+
+.footer .process{
+    width: 45px;height: 34px;
+    background: url(../images/icon/footer-ic01.png) no-repeat;
+    background-size: cover;
+    margin-top: 4px;
+}
+.footer .sym{
+    width: 36px;height: 38px;
+    background: url(../images/icon/footer-ic02.png) no-repeat;
+    background-size: cover;
+}
+.footer .kg{
+    width: 27px;height: 31px;
+    background: url(../images/icon/footer-ic03.png) no-repeat;
+    background-size: cover;
+    margin-top: 4px;
+}
