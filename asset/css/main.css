@@ -283,11 +283,16 @@
 }
 .ad-prod-area .img-box img{
     width: 100%;
+    /* width: 110px; */
+    object-fit: cover;
 }
 
 .ad-prod-area .txt-box{
     padding: 0 28px;
     width: calc(100% - 88px);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .label{
@@ -462,7 +467,7 @@
 }
 
 .category .product-item{
-    min-width: 205px;
+    /* min-width: 205px; */
     padding: 0;
     /* margin-right: 10px !important; */
 }

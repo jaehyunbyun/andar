@@ -134,6 +134,10 @@ $(function(){
     var swiper = new Swiper(".productwrap", {
         slidesPerView: 2.2,
         spaceBetween: 10,
+        // lazy : {
+        //     loadPrevNext : true // 이전, 다음 이미지는 미리 로딩
+        // },
+        
     });
 
 
