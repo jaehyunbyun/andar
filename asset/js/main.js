@@ -49,8 +49,9 @@ $(function(){
     
     //사이드메뉴 리스트
     $('.sidemn-item').click(function(e){
-
+        
         e.preventDefault();
+        $(this).children('.btn-sidemn').toggleClass('show');
         //저번에 배운거 보고 참고
         if ($(this).children('ul').css('display') == 'none') {
             
@@ -62,7 +63,6 @@ $(function(){
             $(this).children('ul').stop().slideUp();
         }
 
-        $(this).children('.btn-sidemn').toggleClass('show');
     })
 
 
@@ -79,16 +79,11 @@ $(function(){
 
     //스크롤 내리면 메뉴바 바뀌는 부분.
     $(window).scroll(function(){
-        // var $menu = $('.menu');
-        // var $gnbarea = $('.gnbarea');
         if ($(this).scrollTop()>0) {
             $('header').addClass('active');
-            // $('.gnb-area').css({"display": "block"})
 
         } else {
             $('header').removeClass('active');
-            // $('.menu-area').removeClass('active');
-            // $('.gnb-area').css({"display": "none"})
         }
 
     })
